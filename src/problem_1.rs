@@ -18,5 +18,5 @@ pub fn problem_1() -> String {
         })
         .unwrap();
 
-    return format!("{}", a * b);
+    return (a * b).to_string();
 }
