@@ -65,19 +65,10 @@ pub fn problem_4() -> String {
     return passwords
         .iter()
         .filter(|password_pattern| {
-            (if password_pattern.password.as_bytes()[password_pattern.lower_char_limit - 1]
-                == password_pattern.char as u8
-            {
-                1
-            } else {
-                0
-            } + if password_pattern.password.as_bytes()[password_pattern.upper_char_limit - 1]
-                == password_pattern.char as u8
-            {
-                1
-            } else {
-                0
-            }) == 1
+            (password_pattern.password.as_bytes()[password_pattern.lower_char_limit - 1]
+                == password_pattern.char as u8)
+                ^ (password_pattern.password.as_bytes()[password_pattern.upper_char_limit - 1]
+                    == password_pattern.char as u8)
         })
         .count()
         .to_string();
