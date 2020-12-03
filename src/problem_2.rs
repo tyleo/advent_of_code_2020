@@ -1,14 +1,11 @@
-use std::fs;
-use std::io::prelude::*;
+use crate::util;
 
 pub fn problem_2() -> String {
-    let mut file = fs::File::open("input/problem_2_input.txt").unwrap();
-    let mut contents = String::new();
-    file.read_to_string(&mut contents).unwrap();
-    let i32s = contents
+    let i32s = util::read("input/problem_2_input.txt")
         .lines()
         .map(|f| f.parse::<i32>().unwrap())
         .collect::<Vec<_>>();
+
     let (a, b, c) = i32s
         .iter()
         .fold(None, |prev_a_b_c, a| {
@@ -23,13 +20,7 @@ pub fn problem_2() -> String {
                 })
             })
         })
-        //     None => i32s.iter().fold(None, |prev_a_b_c, curr|)
-        //         .iter()
-        //         .filter(|inner| curr + *inner == 2020)
-        //         .nth(0)
-        //         .map(|inner| (curr, inner)),
-        //     prev => prev,
-        // })
         .unwrap();
+
     return format!("{}", a * b * c);
 }

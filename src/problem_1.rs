@@ -1,11 +1,7 @@
-use std::fs;
-use std::io::prelude::*;
+use crate::util;
 
 pub fn problem_1() -> String {
-    let mut file = fs::File::open("input/problem_1_input.txt").unwrap();
-    let mut contents = String::new();
-    file.read_to_string(&mut contents).unwrap();
-    let i32s = contents
+    let i32s = util::read("input/problem_1_input.txt")
         .lines()
         .map(|f| f.parse::<i32>().unwrap())
         .collect::<Vec<_>>();
