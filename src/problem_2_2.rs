@@ -57,7 +57,7 @@ impl FromStr for PasswordPattern {
 }
 
 pub fn problem_2_2() -> String {
-    let passwords = util::read("input/problem_2_2_input.txt")
+    let passwords = util::read("input/problem_2_input.txt")
         .lines()
         .map(|f| f.parse::<PasswordPattern>().unwrap())
         .collect::<Vec<_>>();
