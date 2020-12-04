@@ -56,8 +56,8 @@ impl FromStr for PasswordPattern {
     }
 }
 
-pub fn problem_4() -> String {
-    let passwords = util::read("input/problem_4_input.txt")
+pub fn problem_2_1() -> String {
+    let passwords = util::read("input/problem_2_1_input.txt")
         .lines()
         .map(|f| f.parse::<PasswordPattern>().unwrap())
         .collect::<Vec<_>>();
@@ -65,10 +65,13 @@ pub fn problem_4() -> String {
     return passwords
         .iter()
         .filter(|password_pattern| {
-            (password_pattern.password.as_bytes()[password_pattern.lower_char_limit - 1]
-                == password_pattern.char as u8)
-                ^ (password_pattern.password.as_bytes()[password_pattern.upper_char_limit - 1]
-                    == password_pattern.char as u8)
+            let matching_chars = password_pattern
+                .password
+                .chars()
+                .filter(|password_char| *password_char == password_pattern.char)
+                .count();
+            matching_chars <= password_pattern.upper_char_limit
+                && matching_chars >= password_pattern.lower_char_limit
         })
         .count()
         .to_string();

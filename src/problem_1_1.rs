@@ -1,7 +1,7 @@
 use crate::util;
 
-pub fn problem_1() -> String {
-    let i32s = util::read("input/problem_1_input.txt")
+pub fn problem_1_1() -> String {
+    let i32s = util::read("input/problem_1_1_input.txt")
         .lines()
         .map(|f| f.parse::<i32>().unwrap())
         .collect::<Vec<_>>();
