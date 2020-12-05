@@ -7,11 +7,8 @@ pub fn problem_5_1() -> String {
             i.chars().fold(0, |prev, curr| {
                 prev * 2
                     + match curr {
-                        'F' => 0,
-                        'B' => 1,
-                        'L' => 0,
-                        'R' => 1,
-                        _ => 0,
+                        'B' | 'R' => 1,
+                        'F' | 'L' | _ => 0,
                     }
             })
         })
