@@ -11,6 +11,7 @@ mod problem_3_2;
 mod problem_4_1;
 mod problem_4_2;
 mod problem_5_1;
+mod problem_5_2;
 mod util;
 
 fn main() {
@@ -23,4 +24,5 @@ fn main() {
     println!("problem_4_1: {}", problem_4_1::problem_4_1());
     println!("problem_4_2: {}", problem_4_2::problem_4_2());
     println!("problem_5_1: {}", problem_5_1::problem_5_1());
+    println!("problem_5_2: {}", problem_5_2::problem_5_2());
 }
