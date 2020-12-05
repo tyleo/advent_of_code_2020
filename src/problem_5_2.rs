@@ -20,18 +20,13 @@ pub fn problem_5_2() -> String {
     nums.sort();
 
     nums.into_iter()
-        .fold((None, None), |(res, prev), curr| match res {
-            None => match prev {
-                None => (None, Some(curr)),
-                Some(prev) => {
-                    if prev + 1 == curr {
-                        (None, Some(curr))
-                    } else {
-                        (Some(prev + 1), None)
-                    }
-                }
+        .fold((None, None), |(res, prev), curr| match (res, prev) {
+            (None, None) => (None, Some(curr)),
+            (None, Some(prev)) => match prev + 1 {
+                next if next == curr => (None, Some(curr)),
+                ok => (Some(ok), None),
             },
-            i => (i, prev),
+            i => i,
         })
         .0
         .unwrap()
