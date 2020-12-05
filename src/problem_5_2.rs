@@ -22,10 +22,8 @@ pub fn problem_5_2() -> String {
     nums.into_iter()
         .fold((None, None), |(res, prev), curr| match (res, prev) {
             (None, None) => (None, Some(curr)),
-            (None, Some(prev)) => match prev + 1 {
-                next if next == curr => (None, Some(curr)),
-                ok => (Some(ok), None),
-            },
+            (None, Some(prev)) if prev + 1 == curr => (None, Some(curr)),
+            (None, Some(prev)) if prev + 1 != curr => (Some(prev + 1), None),
             i => i,
         })
         .0
