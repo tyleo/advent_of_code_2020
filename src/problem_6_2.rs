@@ -5,15 +5,14 @@ pub fn problem_6_2() -> String {
         .lines()
         .fold(vec![([0; u8::MAX as usize], 0)], |mut prev, curr| {
             let trimmed = curr.trim();
-            match trimmed.is_empty() {
-                true => prev.push(([0; u8::MAX as usize], 0)),
-                false => {
-                    let (questions, people_count) = prev.last_mut().unwrap();
-                    for char in trimmed.bytes() {
-                        questions[char as usize] += 1;
-                    }
-                    *people_count += 1;
+            if trimmed.is_empty() {
+                prev.push(([0; u8::MAX as usize], 0))
+            } else {
+                let (questions, people_count) = prev.last_mut().unwrap();
+                for char in trimmed.bytes() {
+                    questions[char as usize] += 1;
                 }
+                *people_count += 1;
             };
             prev
         })
