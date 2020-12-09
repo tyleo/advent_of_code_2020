@@ -17,29 +17,25 @@ pub fn problem_8_2() -> String {
 
         while ic < lines.len() && lines[ic].0 != run {
             lines[ic].0 = run;
-            match lines[ic].1 {
-                "nop" => {
-                    if !did_swap && !lines[ic].3 {
-                        did_swap = true;
-                        lines[ic].3 = true;
-                        ic = (ic as i32 + lines[ic].2) as usize;
-                    } else {
-                        ic += 1
-                    }
+            let mut cmd = lines[ic].1;
+            if !did_swap && !lines[ic].3 {
+                lines[ic].3 = true;
+                if cmd == "nop" {
+                    did_swap = true;
+                    cmd = "jmp"
+                } else if cmd == "jmp" {
+                    did_swap = true;
+                    cmd = "nop"
                 }
+            }
+
+            match cmd {
+                "nop" => ic += 1,
                 "acc" => {
                     acc += lines[ic].2;
                     ic += 1;
                 }
-                "jmp" => {
-                    if !did_swap && !lines[ic].3 {
-                        did_swap = true;
-                        lines[ic].3 = true;
-                        ic += 1;
-                    } else {
-                        ic = (ic as i32 + lines[ic].2) as usize
-                    }
-                }
+                "jmp" => ic = (ic as i32 + lines[ic].2) as usize,
                 _ => {}
             }
         }
