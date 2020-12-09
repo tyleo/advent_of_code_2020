@@ -4,17 +4,19 @@ pub fn problem_8_2() -> String {
     let file = util::read("input/problem_8_input.txt");
     let mut lines = file
         .lines()
-        .map(|i| (false, &i[..3], i[4..].parse::<i32>().unwrap(), false))
+        .map(|i| (0, &i[..3], i[4..].parse::<i32>().unwrap(), false))
         .into_iter()
         .collect::<Vec<_>>();
 
+    let mut run = 0;
     loop {
+        run += 1;
         let mut did_swap = false;
         let mut ic = 0;
         let mut acc = 0;
 
-        while ic < lines.len() && !lines[ic].0 {
-            lines[ic].0 = true;
+        while ic < lines.len() && lines[ic].0 != run {
+            lines[ic].0 = run;
             match lines[ic].1 {
                 "nop" => {
                     if !did_swap && !lines[ic].3 {
@@ -40,10 +42,6 @@ pub fn problem_8_2() -> String {
                 }
                 _ => {}
             }
-        }
-
-        for line in &mut lines {
-            *line = (false, line.1, line.2, line.3)
         }
 
         if ic >= lines.len() {
