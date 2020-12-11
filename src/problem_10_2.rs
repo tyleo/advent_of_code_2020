@@ -10,7 +10,7 @@ pub fn problem_10_2() -> String {
         .iter()
         .copied()
         .fold(
-            (Some(0), 1u128, None, 0u128, None, 0u128),
+            (Some(0), 1i64, None, 0i64, None, 0i64),
             |(last, last_paths, second_last, second_last_paths, third_last, third_last_paths),
              curr| {
                 let mut curr_paths = 0;
