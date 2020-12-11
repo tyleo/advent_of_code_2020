@@ -2,6 +2,8 @@
 extern crate lazy_static;
 extern crate regex;
 
+mod problem_10_1;
+mod problem_10_2;
 mod problem_1_1;
 mod problem_1_2;
 mod problem_2_1;
@@ -41,4 +43,6 @@ fn main() {
     println!("problem_8_2: {}", problem_8_2::problem_8_2());
     println!("problem_9_1: {}", problem_9_1::problem_9_1());
     println!("problem_9_2: {}", problem_9_2::problem_9_2());
+    println!("problem_10_1: {}", problem_10_1::problem_10_1());
+    println!("problem_10_2: {}", problem_10_2::problem_10_2());
 }
