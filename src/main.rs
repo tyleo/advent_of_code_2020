@@ -4,6 +4,8 @@ extern crate regex;
 
 mod problem_10_1;
 mod problem_10_2;
+mod problem_11_1;
+mod problem_11_2;
 mod problem_1_1;
 mod problem_1_2;
 mod problem_2_1;
@@ -45,4 +47,6 @@ fn main() {
     println!("problem_9_2: {}", problem_9_2::problem_9_2());
     println!("problem_10_1: {}", problem_10_1::problem_10_1());
     println!("problem_10_2: {}", problem_10_2::problem_10_2());
+    println!("problem_11_1: {}", problem_11_1::problem_11_1());
+    println!("problem_11_2: {}", problem_11_2::problem_11_2());
 }
