@@ -8,6 +8,8 @@ mod problem_11_1;
 mod problem_11_2;
 mod problem_12_1;
 mod problem_12_2;
+mod problem_13_1;
+mod problem_13_2;
 mod problem_1_1;
 mod problem_1_2;
 mod problem_2_1;
@@ -59,6 +61,8 @@ fn main() {
         "11.2" => println!("problem_11_2: {}", problem_11_2::problem_11_2()),
         "12.1" => println!("problem_12_1: {}", problem_12_1::problem_12_1()),
         "12.2" => println!("problem_12_2: {}", problem_12_2::problem_12_2()),
+        "13.1" => println!("problem_13_1: {}", problem_13_1::problem_13_1()),
+        "13.2" => println!("problem_13_2: {}", problem_13_2::problem_13_2()),
         _ => println!("Problem could not be found."),
     }
 }
